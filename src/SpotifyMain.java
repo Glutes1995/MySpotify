@@ -39,7 +39,6 @@ public class SpotifyMain {
                         "Watch your fat fingers!");
             }
         }
-        //System.out.println(spotifyList.getSpotifyList().isEmpty());
         scanner.close();
         System.out.println("Closing spotify");
     }
