@@ -40,6 +40,7 @@ public class Spotify {
         scanner.close();
         System.out.println("Closing spotify");
     }
+
     //checks if input is an integer - outputs 0 if not an integer
     public static int inputCheck(Scanner scanner) {
 
