@@ -19,6 +19,10 @@ public class SpotifyList {
     public void removeSongFromList(Scanner scanner) {
         System.out.println("Type the song you would like to remove");
         String title = scanner.nextLine();
+        if (!isOnList(title)) {
+            System.out.println("Song not found");
+            return;
+        }
         for (Song song : spotifyList) {
             if (title.equalsIgnoreCase(song.getTitle())) {
                 spotifyList.remove(song);
@@ -26,7 +30,6 @@ public class SpotifyList {
                 return;
             }
         }
-        System.out.println("Song not found");
     }
 
     //Shows all songs in the list
@@ -59,16 +62,25 @@ public class SpotifyList {
     public void editSongTitle(Scanner scanner) {
         System.out.println("Type the song you would like to edit");
         String title = scanner.nextLine();
+        if (!isOnList(title)) {
+            System.out.println("The song you are trying to edit, does not exist!");
+            return;
+        }
         System.out.println("Type in the new title");
         String newTitle = scanner.nextLine();
         for (Song song : spotifyList) {
             if (title.equalsIgnoreCase(song.getTitle())) {
                 song.setTitle(newTitle);
                 System.out.println("The song " + title + " has been changed to " + newTitle);
-                return;
             }
         }
-        System.out.println("The song you are trying to edit, does not exist!");
+    }
+
+    public boolean isOnList(String title) {
+        for (Song song : spotifyList) {
+            if (title.equalsIgnoreCase(song.getTitle())) return true;
+        }
+        return false;
     }
 
     public ArrayList<Song> getSpotifyList() {
