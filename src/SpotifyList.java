@@ -49,6 +49,9 @@ public class SpotifyList {
         int i = 1;
         System.out.println("Type the song you are looking for");
         String title = scanner.nextLine();
+        if (!isOnList(title)) {
+            return searchResult;
+        }
         for (Song song : spotifyList) {
             if (title.equalsIgnoreCase(song.getTitle())) {
                 searchResult = song.getTitle() + " is number " + i + ". on your list";
