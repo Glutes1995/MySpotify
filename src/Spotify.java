@@ -32,7 +32,7 @@ public class Spotify {
         System.out.println("Closing spotify");
     }
 
-    //checks if input is an integer - outputs 0 if not an integer
+    //checks if input is an integer - returns 0 if not an integer
     public static int inputCheck(Scanner scanner) {
 
         int userInput = 0;
