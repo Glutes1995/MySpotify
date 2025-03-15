@@ -106,7 +106,8 @@ public class SpotifyList {
     public boolean isListEmpty() {
         if (spotifyList.isEmpty()) {
             System.out.println("Your spotify list is empty");
+            return true;
         }
-        return true;
+        return false;
     }
 }
