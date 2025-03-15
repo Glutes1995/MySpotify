@@ -10,6 +10,10 @@ public class SpotifyList {
     public void addSongToList(Scanner scanner) {
         System.out.println("Type the song you would like to add");
         String title = scanner.nextLine();
+        if (isOnList(title)) {
+            System.out.println("That song is already on the list");
+            return;
+        }
         Song song = new Song(title);
         spotifyList.add(song);
         System.out.println(title + " has been added");
