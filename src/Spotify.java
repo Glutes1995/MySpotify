@@ -19,7 +19,7 @@ public class Spotify {
                 case 1 -> spotifyList.addSongToList(scanner);
                 case 2 -> spotifyList.removeSongFromList(scanner);
                 case 3 -> System.out.println(spotifyList);
-                case 4 -> System.out.println(spotifyList.searchForSong(scanner));
+                case 4 -> spotifyList.searchForSong(scanner);
                 case 5 -> spotifyList.editSongTitle(scanner);
                 case 6 -> {
                     break menuLoop;

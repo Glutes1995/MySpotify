@@ -21,6 +21,7 @@ public class SpotifyList {
 
     //Removes song from list
     public void removeSongFromList(Scanner scanner) {
+        if (isListEmpty()) return;
         System.out.println("Type the song you would like to remove");
         String title = scanner.nextLine();
         if (!isOnList(title)) {
@@ -36,11 +37,14 @@ public class SpotifyList {
         }
     }
 
-    //Shows all songs in the list
+    //Shows all songs in the list and their placement
     public String toString() {
-        String songs = "";
-        if (spotifyList.isEmpty()) songs += "Your spotify list is empty\n";
-        if (!spotifyList.isEmpty()) songs = "Here is your spotify list\n";
+        String songs;
+        if (spotifyList.isEmpty()) {
+            songs = "Your spotify list is empty\n";
+        } else {
+            songs = "Here is your spotify list\n";
+        }
         for (int i = 0; i < spotifyList.size(); i++) {
             songs += (i + 1) + ". " + spotifyList.get(i) + "\n";
         }
@@ -48,25 +52,20 @@ public class SpotifyList {
     }
 
     //Searches for song title
-    public String searchForSong(Scanner scanner) {
-        String searchResult = "Song not found";
-        int i = 1;
+    public void searchForSong(Scanner scanner) {
+        if (isListEmpty()) return;
         System.out.println("Type the song you are looking for");
         String title = scanner.nextLine();
         if (!isOnList(title)) {
-            return searchResult;
+            System.out.println("Song not found");
+        } else {
+            showSongPlacement(title);
         }
-        for (Song song : spotifyList) {
-            if (title.equalsIgnoreCase(song.getTitle())) {
-                searchResult = song.getTitle() + " is number " + i + ". on your list";
-            }
-            i++;
-        }
-        return searchResult;
     }
 
-    //Edit song title
+    //Edits song title
     public void editSongTitle(Scanner scanner) {
+        if (isListEmpty()) return;
         System.out.println("Type the song you would like to edit");
         String title = scanner.nextLine();
         if (!isOnList(title)) {
@@ -83,6 +82,7 @@ public class SpotifyList {
         }
     }
 
+    //Checks if song is on list
     public boolean isOnList(String title) {
         for (Song song : spotifyList) {
             if (title.equalsIgnoreCase(song.getTitle())) return true;
@@ -90,7 +90,23 @@ public class SpotifyList {
         return false;
     }
 
-    public ArrayList<Song> getSpotifyList() {
-        return spotifyList;
+    //shows the songs placement on list
+    public void showSongPlacement(String title) {
+        int i = 0;
+        for (Song song : spotifyList) {
+            i++;
+            if (title.equalsIgnoreCase(song.getTitle())) {
+                System.out.println(song.getTitle() + " is number " + i + ". on your list");
+            }
+        }
+
+    }
+
+    //checks if list is empty
+    public boolean isListEmpty() {
+        if (spotifyList.isEmpty()) {
+            System.out.println("Your spotify list is empty");
+        }
+        return true;
     }
 }
