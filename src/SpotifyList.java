@@ -44,9 +44,9 @@ public class SpotifyList {
             songs = "Your spotify list is empty\n";
         } else {
             songs = "Here is your spotify list\n";
-        }
-        for (int i = 0; i < spotifyList.size(); i++) {
-            songs += (i + 1) + ". " + spotifyList.get(i) + "\n";
+            for (int i = 0; i < spotifyList.size(); i++) {
+                songs += (i + 1) + ". " + spotifyList.get(i) + "\n";
+            }
         }
         return songs;
     }
