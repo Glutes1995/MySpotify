@@ -75,8 +75,8 @@ public class SpotifyList {
         } else {
             System.out.println("Where would you like to move it");
             int userInput = Spotify.inputCheck(scanner);
-            int i = 0;
             if (spotifyList.size() >= userInput && userInput > 0) {
+                int i = 0;
                 for (Song song : spotifyList) {
                     if (title.equalsIgnoreCase(song.getTitle())) {
                         spotifyList.remove(spotifyList.get(i));

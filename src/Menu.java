@@ -1,5 +1,4 @@
 public class Menu {
-
     public static void spotifyMenu() {
         System.out.println("""
                          Menu
