@@ -18,7 +18,7 @@ public class Spotify {
             switch (userInput) {
                 case 1 -> spotifyList.addSongToList(scanner);
                 case 2 -> spotifyList.removeSongFromList(scanner);
-                case 3 -> System.out.println(spotifyList);
+                case 3 -> spotifyList.showSpotifyList();
                 case 4 -> spotifyList.searchForSong(scanner);
                 case 5 -> spotifyList.editSongTitle(scanner);
                 case 6 -> {

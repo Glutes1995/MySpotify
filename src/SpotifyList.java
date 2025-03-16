@@ -38,6 +38,20 @@ public class SpotifyList {
     }
 
     //Shows all songs in the list and their placement
+    public void showSpotifyList() {
+        String list;
+        if (spotifyList.isEmpty()) {
+            list = "Your spotify list is empty\n";
+        } else {
+            list = "Here is your spotify list\n";
+            for (int i = 0; i < spotifyList.size(); i++) {
+                list += (i + 1) + ". " + spotifyList.get(i) + "\n";
+            }
+        }
+        System.out.println(list);
+    }
+
+    //Shows all songs in the list and their placement
     public String toString() {
         String songs;
         if (spotifyList.isEmpty()) {
