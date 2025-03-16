@@ -40,14 +40,12 @@ public class SpotifyList {
     //Shows all songs in the list and their placement
     public void toShow() {
         String list;
-        if (spotifyList.isEmpty()) {
-            list = "Your spotify list is empty\n";
-        } else {
-            list = "Here is your spotify list\n";
-            for (int i = 0; i < spotifyList.size(); i++) {
-                list += (i + 1) + ". " + spotifyList.get(i) + "\n";
-            }
+        if (isListEmpty()) return;
+        list = "Here is your spotify list\n";
+        for (int i = 0; i < spotifyList.size(); i++) {
+            list += (i + 1) + ". " + spotifyList.get(i) + "\n";
         }
+
         System.out.println(list);
     }
 
@@ -86,7 +84,7 @@ public class SpotifyList {
                 }
                 i++;
             }
-            showPlacement(title);
+            toShowSongPlacement(title);
             return;
         }
         System.out.println("Choose within your lists size: 1-" + spotifyList.size());
@@ -100,7 +98,7 @@ public class SpotifyList {
         if (!isOnList(title)) {
             System.out.println("Song not found");
         } else {
-            showPlacement(title);
+            toShowSongPlacement(title);
         }
     }
 
@@ -136,7 +134,7 @@ public class SpotifyList {
     }
 
     //shows the songs placement on list
-    public void showPlacement(String title) {
+    public void toShowSongPlacement(String title) {
         int i = 0;
         for (Song song : spotifyList) {
             i++;
