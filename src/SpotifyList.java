@@ -8,7 +8,7 @@ public class SpotifyList {
 
     //Adds song to list
     public void toAdd(Scanner scanner) {
-        System.out.println("Type the song you would like to add");
+        System.out.println("What's the title?");
         String title = scanner.nextLine();
         if (isOnList(title)) {
             System.out.println("That song is already on the list");
@@ -72,24 +72,24 @@ public class SpotifyList {
         String title = scanner.nextLine();
         if (!isOnList(title)) {
             System.out.println("Song not found");
-        } else {
-            System.out.println("Where would you like to move it");
-            int userInput = Spotify.inputCheck(scanner);
-            if (spotifyList.size() >= userInput && userInput > 0) {
-                int i = 0;
-                for (Song song : spotifyList) {
-                    if (title.equalsIgnoreCase(song.getTitle())) {
-                        spotifyList.remove(spotifyList.get(i));
-                        spotifyList.add(userInput - 1, song);
-                        break;
-                    }
-                    i++;
-                }
-                showPlacement(title);
-                return;
-            }
-            System.out.println("Choose within your lists size: 1-" + spotifyList.size());
+            return;
         }
+        System.out.println("To what spot?");
+        int userInput = Spotify.inputCheck(scanner);
+        if (spotifyList.size() >= userInput && userInput > 0) {
+            int i = 0;
+            for (Song song : spotifyList) {
+                if (title.equalsIgnoreCase(song.getTitle())) {
+                    spotifyList.remove(spotifyList.get(i));
+                    spotifyList.add(userInput - 1, song);
+                    break;
+                }
+                i++;
+            }
+            showPlacement(title);
+            return;
+        }
+        System.out.println("Choose within your lists size: 1-" + spotifyList.size());
     }
 
     //Searches for song title
@@ -113,7 +113,7 @@ public class SpotifyList {
             System.out.println("Song not found");
             return;
         }
-        System.out.println("Type in the new title");
+        System.out.println("What's the new title?");
         String newTitle = scanner.nextLine();
         if (isOnList(newTitle)) {
             System.out.println("That song is already on the list");
