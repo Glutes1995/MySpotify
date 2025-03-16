@@ -6,9 +6,10 @@ public class Menu {
                     1. Add song
                     2. Remove song
                     3. Show list of songs
-                    4. Search for song
-                    5. Edit song title
-                    6. Exit
+                    4. Move song
+                    5. Search for song
+                    6. Edit song title
+                    7. Exit
                     """);
     }
 }

@@ -16,15 +16,16 @@ public class Spotify {
             Menu.spotifyMenu();
             int userInput = inputCheck(scanner);
             switch (userInput) {
-                case 1 -> spotifyList.addSongToList(scanner);
-                case 2 -> spotifyList.removeSongFromList(scanner);
-                case 3 -> spotifyList.showSpotifyList();
-                case 4 -> spotifyList.searchForSong(scanner);
-                case 5 -> spotifyList.editSongTitle(scanner);
-                case 6 -> {
+                case 1 -> spotifyList.toAdd(scanner);
+                case 2 -> spotifyList.toRemove(scanner);
+                case 3 -> spotifyList.toShow();
+                case 4 -> spotifyList.toMove(scanner);
+                case 5 -> spotifyList.toSearch(scanner);
+                case 6 -> spotifyList.toEdit(scanner);
+                case 7 -> {
                     break menuLoop;
                 }
-                default -> System.out.println("You can only choose between 1-6\n" +
+                default -> System.out.println("You can only choose between 1-7\n" +
                         "Watch your fat fingers!");
             }
         }
