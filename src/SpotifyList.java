@@ -26,13 +26,13 @@ public class SpotifyList {
         String title = scanner.nextLine();
         if (!isOnList(title)) {
             System.out.println("Song not found");
-        } else {
-            for (Song song : spotifyList) {
-                if (title.equalsIgnoreCase(song.getTitle())) {
-                    spotifyList.remove(song);
-                    System.out.println(title + " has been removed");
-                    return;
-                }
+            return;
+        }
+        for (Song song : spotifyList) {
+            if (title.equalsIgnoreCase(song.getTitle())) {
+                spotifyList.remove(song);
+                System.out.println(title + " has been removed");
+                return;
             }
         }
     }
