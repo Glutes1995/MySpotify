@@ -72,17 +72,19 @@ public class SpotifyList {
             System.out.println("Song not found");
             return;
         }
+        if (spotifyList.size() == 1) {
+            System.out.println("This is the only song on your list");
+            return;
+        }
         System.out.println("To what spot?");
         int userInput = Spotify.inputCheck(scanner);
         if (spotifyList.size() >= userInput && userInput > 0) {
-            int i = 0;
             for (Song song : spotifyList) {
                 if (title.equalsIgnoreCase(song.getTitle())) {
-                    spotifyList.remove(spotifyList.get(i));
+                    spotifyList.remove(song);
                     spotifyList.add(userInput - 1, song);
                     break;
                 }
-                i++;
             }
             toShowSongPlacement(title);
             return;
