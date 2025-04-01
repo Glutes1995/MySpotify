@@ -11,20 +11,18 @@ public class Spotify {
         SpotifyList spotifyList = new SpotifyList();
         Scanner scanner = new Scanner(System.in);
 
-        menuLoop:
-        while (true) {
+        boolean isRunning = true;
+        while (isRunning) {
             Menu.spotifyMenu();
             int userInput = inputCheck(scanner);
             switch (userInput) {
-                case 1 -> spotifyList.toAdd(scanner);
-                case 2 -> spotifyList.toRemove(scanner);
-                case 3 -> spotifyList.toShow();
-                case 4 -> spotifyList.toMove(scanner);
-                case 5 -> spotifyList.toSearch(scanner);
-                case 6 -> spotifyList.toEdit(scanner);
-                case 7 -> {
-                    break menuLoop;
-                }
+                case 1 -> spotifyList.addSong(scanner);
+                case 2 -> spotifyList.removeSong(scanner);
+                case 3 -> spotifyList.showSong();
+                case 4 -> spotifyList.moveSong(scanner);
+                case 5 -> spotifyList.searchForSong(scanner);
+                case 6 -> spotifyList.editSong(scanner);
+                case 7 -> isRunning = false;
                 default -> System.out.println("You can only choose between 1-7\n" +
                         "Watch your fat fingers!");
             }

@@ -7,7 +7,7 @@ public class SpotifyList {
     private final ArrayList<Song> spotifyList = new ArrayList<>();
 
     //Adds song to list
-    public void toAdd(Scanner scanner) {
+    public void addSong(Scanner scanner) {
         System.out.println("What's the title?");
         String title = scanner.nextLine();
         if (isOnList(title)) {
@@ -20,7 +20,7 @@ public class SpotifyList {
     }
 
     //Removes song from list
-    public void toRemove(Scanner scanner) {
+    public void removeSong(Scanner scanner) {
         if (isListEmpty()) return;
         System.out.println("Type the song you would like to remove");
         String title = scanner.nextLine();
@@ -38,15 +38,8 @@ public class SpotifyList {
     }
 
     //Shows all songs in the list and their placement
-    public void toShow() {
-        String list;
-        if (isListEmpty()) return;
-        list = "Here is your spotify list\n";
-        for (int i = 0; i < spotifyList.size(); i++) {
-            list += (i + 1) + ". " + spotifyList.get(i) + "\n";
-        }
-
-        System.out.println(list);
+    public void showSong() {
+        System.out.println(this);
     }
 
     //Shows all songs in the list and their placement
@@ -64,7 +57,7 @@ public class SpotifyList {
     }
 
     //Moves song location
-    public void toMove(Scanner scanner) {
+    public void moveSong(Scanner scanner) {
         if (isListEmpty()) return;
         System.out.println("What song would you like to move?");
         String title = scanner.nextLine();
@@ -86,26 +79,26 @@ public class SpotifyList {
                     break;
                 }
             }
-            toShowSongPlacement(title);
+            showSongPlacement(title);
             return;
         }
         System.out.println("Choose within your lists size: 1-" + spotifyList.size());
     }
 
     //Searches for song title
-    public void toSearch(Scanner scanner) {
+    public void searchForSong(Scanner scanner) {
         if (isListEmpty()) return;
         System.out.println("Type the song you are looking for");
         String title = scanner.nextLine();
         if (!isOnList(title)) {
             System.out.println("Song not found");
         } else {
-            toShowSongPlacement(title);
+            showSongPlacement(title);
         }
     }
 
     //Edits song title
-    public void toEdit(Scanner scanner) {
+    public void editSong(Scanner scanner) {
         if (isListEmpty()) return;
         System.out.println("Type the song you would like to edit");
         String title = scanner.nextLine();
@@ -136,7 +129,7 @@ public class SpotifyList {
     }
 
     //shows the songs placement on list
-    public void toShowSongPlacement(String title) {
+    public void showSongPlacement(String title) {
         int i = 0;
         for (Song song : spotifyList) {
             i++;
